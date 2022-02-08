@@ -20,7 +20,11 @@
             android:exported="false" />
         <activity
             android:name=".presentation.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme"
+            >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
