@@ -7,4 +7,7 @@
     <string name="signin">Sign In</string>
     <string name="username">User Name</string>
     <string name="age_req">Age</string>
+    <string name="add_note">Add new note</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

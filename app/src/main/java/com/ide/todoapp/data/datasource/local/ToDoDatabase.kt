@@ -1,43 +1,44 @@
 package com.ide.todoapp.data.datasource.local
 
 import android.content.Context
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import android.os.Parcelable
+import androidx.room.*
 
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.versionedparcelable.ParcelField
+
+@Database(entities = [ToDoEntinty::class], version = 1)
 abstract class ToDoDatabase : RoomDatabase() {
-    companion object{
+    abstract fun toDoDao(): ToDoDao
 
-        private var instance : ToDoDatabase?=null
+    companion object {
 
-        fun getINSTANCE(context :Context):ToDoDatabase? {
+
+        @Volatile
+        private var INSTANCE: ToDoDatabase? = null
+
+        fun getINSTANCE(context: Context): ToDoDatabase? {
+            val inctance = INSTANCE
+            if (inctance!=null){
+                return inctance
+            }
             synchronized(this){
-            if (instance == null) {
-                return Room.databaseBuilder(
-                    context.applicationContext, ToDoDatabase::class.java,
-                    "ToDo_db"
-                ).build()
-            } else {
-                return instance
+                val tempInctanse=Room.databaseBuilder(context.applicationContext,
+                ToDoDatabase::class.java,"todo_database").build()
+                INSTANCE=tempInctanse
+                return tempInctanse
             }
         }
-        }
     }
-
-
-
-
-
-
 }
 
-@Entity(tableName = "ToDoApp")
+
+@Entity(tableName = "todo_tasks")
+
 data class ToDoEntinty(
-    val userName : String?=null,
-    val uesrEmail: String?=null,
-    val userPassword:String?=null
-){
     @PrimaryKey(autoGenerate = true)
-    val id :Int?=null
-}
+    var id: Int,
+    var date: String,
+    var content: String,
+)

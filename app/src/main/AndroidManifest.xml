@@ -2,23 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ide.todoapp">
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <application
+        android:name=".data.datasource.viewmmodel.ToDoAplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/todo_appicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/todo_appicon_foround"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDoApp">
         <activity
             android:name=".presentation.SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.ToDoApp"/>
         <activity
             android:name=".presentation.SignInActivity"
-            android:theme="@style/LoginScreenTheme"
+            android:theme="@style/NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".presentation.MainActivity"
-            android:exported="false" />
+            android:name=".presentation.TODOActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBar"/>
         <activity
             android:name=".presentation.SplashActivity"
             android:exported="true"

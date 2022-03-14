@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/uncolored"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/todo"></ImageView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp">
+        <TextView
+            android:id="@+id/mainDate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/purple_200">
+        </TextView>
+        <TextView
+            android:id="@+id/mainTitle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textSize="15dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/purple_700"></TextView>
+        </LinearLayout>
+
+    <ImageView
+        android:id="@+id/delete_iv"
+        android:layout_width="25dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/delete_icon"></ImageView>
+</LinearLayout>

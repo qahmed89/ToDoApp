@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.SignUpActivity">
 
+
     <ImageView
         android:id="@+id/signUp_iv"
         android:layout_width="wrap_content"
@@ -18,16 +19,17 @@
         app:srcCompat="@drawable/signup_background" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
         android:text="@string/signup"
+        android:textColor="@color/purple_700"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signUp_iv"
-        android:textSize="30sp"
-        android:textColor="@color/purple_500"
-        android:layout_marginTop="180dp"/>
+        app:layout_constraintTop_toTopOf="@+id/signUp_iv" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -47,9 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:ems="10"
-            android:inputType="text"
             android:hint="@string/username"
-            android:textColorHint="@color/purple_200"/>
+            android:inputType="text"
+            android:textColorHint="@color/purple_200" />
 
         <EditText
             android:id="@+id/age_et"
@@ -57,9 +59,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:ems="10"
-            android:inputType="numberDecimal"
             android:hint="@string/age_req"
-            android:textColorHint="@color/purple_200"/>
+            android:inputType="numberDecimal"
+            android:textColorHint="@color/purple_200" />
 
         <EditText
             android:id="@+id/email_et"
@@ -69,7 +71,7 @@
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/purple_200"/>
+            android:textColorHint="@color/purple_200" />
 
         <EditText
             android:id="@+id/password_et"
@@ -78,33 +80,50 @@
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColorHint="@color/purple_200"/>
+            android:textColorHint="@color/purple_200" />
+
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_marginBottom="160dp"
         android:src="@drawable/user_name_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="160dp"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
     <ImageView
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/date_icon"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.444"></ImageView>
+
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_marginTop="120dp"
         android:src="@drawable/emailicon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="120dp"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_marginTop="265dp"
         android:src="@drawable/passwordicon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="265dp"></ImageView>
+        app:layout_constraintVertical_bias="0.488"></ImageView>
 
     <Button
         android:id="@+id/signup_bt"
@@ -114,14 +133,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/purple_500"
-        android:text="@string/signup"/>
+        android:backgroundTint="@color/purple_700"
+        android:text="@string/signup"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/roboto_light"
         android:text="Already have account?"
         android:textColor="@color/purple_200"
@@ -140,6 +160,28 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="5dp"/>
+
+    <ImageView
+        android:id="@+id/back_signin"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:src="@drawable/backarrow_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"></ImageView>
+    <ProgressBar
+        android:id="@+id/progressBarSignup"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
