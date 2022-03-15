@@ -89,9 +89,9 @@ class SignUpActivity : AppCompatActivity() {
                 return@observe
             }
             progressBarSignUp.visibility=View.GONE
-            prefEditor.putString("token","${result.body()?.token}").apply()
-            prefEditor.putString("name","${result.body()?.userInfo?.name}").apply()
+            prefEditor.putString("token","Bearer ${result.body()?.token}").apply()
             val intentMain = Intent(this, TODOActivity::class.java)
+            intentMain.putExtra("name",result.body()?.userInfo?.name)
             startActivity(intentMain)
             finish()
 

@@ -21,8 +21,8 @@ class Repo (val api: AuthService)  {
         val result =api.postLogIn(postLogIn).execute()
         return result
     }
-    fun logout():Response<LogoutResponse>{
-        val result =api.logout().execute()
+    fun logout(token:String):Response<LogoutResponse>{
+        val result =api.logout(token).execute()
         return result
     }
 

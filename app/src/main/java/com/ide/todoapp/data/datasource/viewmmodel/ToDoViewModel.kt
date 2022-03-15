@@ -47,17 +47,19 @@ class ToDoViewModel(
             Toast.makeText(context,"Check your internet Connection!",Toast.LENGTH_SHORT).show()
         }
     }
-    fun logout(context: Context){
+    fun logout(context: Context,token:String){
         if (hasInternetConnection()) {
             val executors = Executors.newSingleThreadExecutor()
             executors.execute {
-                val result: Response<LogoutResponse> = repo.logout()
+                val result: Response<LogoutResponse> = repo.logout(token)
                 _logoutMLData.postValue(result)
             }
         }else{
             Toast.makeText(context,"Check your internet Connection!",Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
 
      fun hasInternetConnection():Boolean{

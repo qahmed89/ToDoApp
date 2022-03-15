@@ -48,22 +48,24 @@ class TODOActivity : AppCompatActivity() {
         val toolbar: Toolbar? = findViewById(R.id.main_toolbar)
         setActionBar(toolbar)
         nameActoinBar = findViewById(R.id.mainName_toolbar)
-        nameActoinBar.setText(sharedPrefrance.getString("name",""))
+        val intent=intent
+        nameActoinBar.text=intent.getStringExtra("name")
         //logout
         //api logout problem
-        //observer()
+        observer()
         val logOut:ImageView=findViewById(R.id.mainBack_bt)
         logOut.setOnClickListener {
             progressBar.visibility=View.VISIBLE
-            /*if (!apiViewModel.hasInternetConnection()){
+            if (!apiViewModel.hasInternetConnection()){
                 progressBar.visibility= View.GONE
                 return@setOnClickListener
-            }*/
-            //apiViewModel.logout(this)
-            prefEditor.clear().apply()
-            intent= Intent(this,SignInActivity::class.java)
-            startActivity(intent)
-            finish()
+            }
+            var token =sharedPrefrance.getString("token",null).toString()
+            apiViewModel.logout(this,token)
+            //prefEditor.clear().apply()
+            //intent= Intent(this,SignInActivity::class.java)
+            //startActivity(intent)
+            //finish()
 
         }
 
@@ -80,9 +82,7 @@ class TODOActivity : AppCompatActivity() {
             }
 
             override fun onImageClick(position: Int, imageView: ImageView) {
-               //val dialog = DeleteTaskDialog(recyclerAdappter.getData(position))
-                //databaseViewModel.delete(recyclerAdappter.getData(position))
-                //dialog.show(supportFragmentManager, "addTODO")
+
                 val view=View.inflate(this@TODOActivity,R.layout.delete_popup,null)
                 val dialogBuilder=AlertDialog.Builder(this@TODOActivity)
                 dialogBuilder.setView(view)
@@ -128,6 +128,7 @@ class TODOActivity : AppCompatActivity() {
             }
             progressBar.visibility=View.GONE
             prefEditor.clear().apply()
+            Toast.makeText(this, "Logout Success!", Toast.LENGTH_SHORT).show()
             intent= Intent(this,SignInActivity::class.java)
             startActivity(intent)
             finish()

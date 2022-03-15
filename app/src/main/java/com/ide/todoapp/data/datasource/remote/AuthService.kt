@@ -8,6 +8,7 @@ import com.ide.todoapp.data.datasource.model.response.PostLogInResponse
 import com.ide.todoapp.data.datasource.model.response.PostResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
@@ -19,7 +20,6 @@ interface AuthService {
     @POST("/user/login")
     fun postLogIn(@Body postLogIn: PostLogIn):Call<PostLogInResponse>
 
-    @Headers("Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjFjYmYwNTBmMzRkYzAwMTc4OGJhYzUiLCJpYXQiOjE2NDcyMDg4NzN9.LlDRxvr8LyII1F8Ij8vR0RxHg93nLK87z4rfE-cieB8")
-    @POST("/user/logout")
-    fun logout():Call<LogoutResponse>
+    @POST("user/logout")
+    fun logout(@Header("Authorization") token: String): Call<LogoutResponse>
 }
